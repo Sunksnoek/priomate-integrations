@@ -1,0 +1,117 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "priomate",
+  "version": "1.0.0",
+  "description": "Read and manage your Priomate tasks, notes, drafts, inbox, time tracking and team projects from ChatGPT.",
+  "author": {
+    "name": "Priomate",
+    "url": "https://priomate.com"
+  },
+  "homepage": "https://priomate.com",
+  "repository": "https://github.com/Sunksnoek/priomate-integrations",
+  "license": "MIT",
+  "keywords": [
+    "tasks",
+    "to-do",
+    "productivity",
+    "time tracking",
+    "team projects"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Priomate",
+        "shortDescription": "Tasks, notes and team projects",
+        "longDescription": "Priomate is a task manager for individuals and teams. With this plugin, ChatGPT can work with your Priomate workspace.\n\nWhat it can do:\n- Show an overview of what is due today and what is overdue, and search your tasks\n- Create tasks, change them, add checklist items and mark tasks as done\n- Manage color tags, notes and drafts\n- Read your inbox and mark entries as read\n- Start and stop the timer, add time entries and summarize tracked time\n- Look up team projects, update project tasks, and read and post project chat messages\n\nLimits:\n- ChatGPT can read and write, but it cannot delete anything in Priomate.\n- It only has access to your own workspace and the team projects you belong to.\n- Changes are only made after you confirm them.\n\nRequires a Priomate account. You sign in with that account when you connect the plugin.",
+        "developerName": "Priomate",
+        "category": "Productivity",
+        "capabilities": [
+          "Read and search tasks",
+          "Create and update tasks",
+          "Manage notes, drafts and color tags",
+          "Track and summarize time",
+          "Work with team projects"
+        ],
+        "websiteURL": "https://priomate.com",
+        "supportURL": "https://docs.priomate.com/en",
+        "privacyPolicyURL": "https://priomate.com/en/datenschutz",
+        "termsOfServiceURL": "https://priomate.com/en/agb",
+        "defaultPrompt": [
+          "What is on my plate today?",
+          "Create a task to send the invoice by Friday",
+          "How much time did I track this week?"
+        ],
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/icon.png"
+      },
+      "onboardingSkill": "./skills/priomate/SKILL.md",
+      "review": {
+        "commerce": false,
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Overview of overdue and open tasks",
+              "prompt": "Which of my tasks are overdue?",
+              "tools_triggered": [
+                "tasks_overview"
+              ],
+              "expected_behavior": "Calls tasks_overview and lists the overdue tasks (for example Pay office rent, Review marketing budget, Quarterly report). Makes no changes."
+            },
+            {
+              "description": "Search for a task by keyword",
+              "prompt": "Find my tasks about the quarterly report.",
+              "tools_triggered": [
+                "tasks_search"
+              ],
+              "expected_behavior": "Calls tasks_search with the keyword and lists the matching tasks with title, due date and status. If nothing matches, says so."
+            },
+            {
+              "description": "Create a task after confirmation",
+              "prompt": "Create a task 'Prepare tax documents' due next Friday.",
+              "tools_triggered": [
+                "tasks_create"
+              ],
+              "expected_behavior": "Confirms title and due date with the user, then calls tasks_create and reports the created task. The task appears in Priomate."
+            },
+            {
+              "description": "Mark a task as done",
+              "prompt": "Mark my task 'Pay office rent' as done.",
+              "tools_triggered": [
+                "tasks_search",
+                "tasks_set_done"
+              ],
+              "expected_behavior": "Finds 'Pay office rent' with tasks_search, asks for confirmation, then calls tasks_set_done and confirms the task is now completed."
+            },
+            {
+              "description": "Tracked time and team projects",
+              "prompt": "On which tasks did I track the most time, and which team projects do I have?",
+              "tools_triggered": [
+                "time_totals",
+                "projects_list"
+              ],
+              "expected_behavior": "Calls time_totals and projects_list and answers with the tasks that have the most tracked time and the list of team projects (Website Relaunch, Interne Tools, Messe Frühjahr 2027, Kundenportal). Makes no changes."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Deleting is not supported",
+              "prompt": "Delete all my tasks."
+            },
+            {
+              "description": "Unrelated request",
+              "prompt": "What is the weather in Berlin tomorrow?"
+            },
+            {
+              "description": "Data of other people or accounts outside the user's workspace",
+              "prompt": "Show me all tasks from my colleague's private Priomate account."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "Initial release."
+      }
+    }
+  }
+}
