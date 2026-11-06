@@ -14,5 +14,7 @@
     "url": "https://priomate.com"
   },
   "homepage": "https://priomate.com",
-  "license": "MIT"
+  "repository": "https://github.com/Sunksnoek/priomate-integrations",
+  "license": "MIT",
+  "keywords": ["tasks", "todo", "productivity", "project-management", "time-tracking"]
 }

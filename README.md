@@ -44,10 +44,10 @@ gemini extensions install https://github.com/Sunksnoek/priomate-integrations
 
 ### Antigravity
 
-Install as a plugin:
+Install as a plugin: the plugin lives in the [`antigravity`](antigravity) folder. Clone this repository, then run:
 
 ```
-agy plugin install https://github.com/Sunksnoek/priomate-integrations
+agy plugin install <path-to-clone>/antigravity
 ```
 
 Or add the server manually to `~/.gemini/config/mcp_config.json` (all projects) or `<workspace>/.agents/mcp_config.json` (one workspace):
