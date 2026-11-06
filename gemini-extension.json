@@ -1,7 +1,7 @@
 {
   "name": "priomate",
   "version": "1.1.0",
-  "description": "Read and manage your Priomate tasks, notes, inbox, team projects and time tracking.",
+  "description": "Read your Priomate tasks, notes, inbox, team projects and time tracking.",
   "mcpServers": {
     "priomate": {
       "httpUrl": "https://mcp.priomate.com/mcp"

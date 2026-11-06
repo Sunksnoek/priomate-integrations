@@ -1,12 +1,12 @@
 {
   "name": "priomate",
   "displayName": "Priomate",
-  "description": "Read and manage your Priomate tasks, notes, inbox, team projects and time tracking directly from Antigravity through the remote Priomate MCP server.",
+  "description": "Read your Priomate tasks, notes, inbox, team projects and time tracking directly from Antigravity through the remote Priomate MCP server.",
   "version": "1.1.0",
   "logo": "assets/icon.png",
   "suggestedPrompts": [
     "What are my most important tasks today?",
-    "Summarize my open tasks for the Marketing tag",
+    "Which of my open tasks are overdue?",
     "How much time did I track this week?"
   ],
   "author": {
