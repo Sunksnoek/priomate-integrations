@@ -1,0 +1,11 @@
+{
+  "name": "priomate",
+  "version": "1.1.0",
+  "description": "Read and manage your Priomate tasks, notes, inbox, team projects and time tracking.",
+  "author": {
+    "name": "Priomate"
+  },
+  "license": "MIT",
+  "keywords": ["tasks", "task-management", "productivity", "time-tracking", "mcp"],
+  "logo": "assets/icon.png"
+}
